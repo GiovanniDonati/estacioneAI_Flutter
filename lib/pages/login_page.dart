@@ -28,6 +28,14 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 70,),
               Text("Email", style: TextStyle(color: Colors.white, fontSize: 20),),
               Text("Password", style: TextStyle(color: Colors.white, fontSize: 20),),
+              const SizedBox(height: 70,),
+              Row(
+                children: [
+                  Expanded(child: Container()),
+                  Expanded(flex:7, child: Container(color: Colors.purple[400], child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 20),))),
+                  Expanded(child: Container()),
+                ],
+              ),
             ],
           ),
         ),
