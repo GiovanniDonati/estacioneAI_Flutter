@@ -13,7 +13,8 @@ class _PositionPageState extends State<PositionPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Text(widget.title),backgroundColor: Colors.red),
-      ));
+        appBar: AppBar(title: Text(widget.title), backgroundColor: Colors.red),
+      ),
+    );
   }
 }

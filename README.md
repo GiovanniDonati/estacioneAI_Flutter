@@ -1,16 +1,22 @@
-# estacioneai
+# EstacioneAI 🚗
 
-A new Flutter project.
+**Parking Spot Management System**
 
-## Getting Started
+## 📱 Project Overview
 
-This project is a starting point for a Flutter application.
+**EstacioneAI** is a mobile application developed using Flutter, designed to manage and monitor parking spot availability efficiently. This project was created as part of my undergraduate studies and serves as a practical approach to learning Flutter and mobile development best practices.
 
-A few resources to get you started if this is your first Flutter project:
+The goal is to implement a functional parking management system while exploring key Flutter concepts such as state management, navigation, backend integration, and UI responsiveness.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📁 Project Structure
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This repository provides the initial structure for a Flutter application. It serves as a starting point and will evolve over time with the addition of new features and improvements.
+
+## 👨‍💻 About the Author
+
+Developed by [Giovanni Donati](https://www.linkedin.com/in/giovanni-donati-dev), a technology student passionate about mobile development and smart solutions.  
+Connect with me on LinkedIn to follow the progress of this and other projects!
+
+---
+
+> 🚧 This project is under development and will be updated regularly.
