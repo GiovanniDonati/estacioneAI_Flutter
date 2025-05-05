@@ -1,3 +1,4 @@
+import 'package:estacioneai/repositories/linguagens_repository.dart';
 import 'package:estacioneai/repositories/nivel_repository.dart';
 import 'package:flutter/material.dart';
 
@@ -14,12 +15,17 @@ class _DashboardPageState extends State<DashboardPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController bornController = TextEditingController();
   var nivelRepository = NivelRepository();
+  var linguagensRepository = LinguagensRepository();
   var niveis = [];
+  var linguagens = [];
+  var linguagensSelecionado = [];
   var nivelSelecionado = "";
+  double salarioEscolhido = 1000;
 
   @override
   void initState() {
     niveis = nivelRepository.retornaNiveis();
+    linguagens = linguagensRepository.retornaLinguagens();
     super.initState();
   }
 
@@ -29,8 +35,7 @@ class _DashboardPageState extends State<DashboardPage> {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
             children: [
               TextLabel(text: "Nome Completo"),
               TextField(controller: nameController),
@@ -52,31 +57,61 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               TextLabel(text: "Nível de experiência"),
               Column(
-                children:
-                    niveis
-                        .map(
-                          (nivel) => RadioListTile(
-                            dense: true,
-                            title: Text(nivel.toString()),
-                            selected: nivelSelecionado == nivel.toString(),
-                            value: nivel.toString(),
-                            groupValue: nivelSelecionado,
-                            onChanged: (value) {
-                              setState(() {
-                                nivelSelecionado = value.toString();
-                              });
-                            },
-                          ),
-                        )
-                        .toList(),
+                children: niveis
+                    .map(
+                      (nivel) => RadioListTile(
+                        dense: true,
+                        title: Text(nivel.toString()),
+                        selected: nivelSelecionado == nivel.toString(),
+                        value: nivel.toString(),
+                        groupValue: nivelSelecionado,
+                        onChanged: (value) {
+                          setState(() {
+                            nivelSelecionado = value.toString();
+                          });
+                        },
+                      ),
+                    )
+                    .toList(),
               ),
-              TextButton(
-                onPressed: () {
-                  print(nameController.text);
-                  print(bornController.text);
+              TextLabel(text: "Linguagens de programação"),
+              Column(
+                children: linguagens
+                    .map(
+                      (linguagem) => CheckboxListTile(
+                        dense: true,
+                        title: Text(linguagem),
+                        value: linguagensSelecionado.contains(linguagem),
+                        onChanged: (bool? value) {
+                          if (value!) {
+                            setState(() {
+                              linguagensSelecionado.add(linguagem);
+                            });
+                          } else {
+                            setState(() {
+                              linguagensSelecionado.remove(linguagem);
+                            });
+                          }
+                        },
+                      ),
+                    )
+                    .toList(),
+              ),
+              TextLabel(
+                text: "Pretenção salárial. R\$ ${salarioEscolhido.round()}",
+              ),
+              Slider(
+                min: 1000,
+                max: 10000,
+                value: salarioEscolhido,
+                onChanged: (double value) {
+                  setState(() {
+                    salarioEscolhido = value;
+                  });
+                  print(value);
                 },
-                child: Text("Salvar"),
               ),
+              TextButton(onPressed: () {}, child: Text("Salvar")),
             ],
           ),
         ),
