@@ -17,7 +17,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: const Text("Home Page"),backgroundColor: Colors.blueAccent),
+        appBar: AppBar(
+          title: const Text("Home Page"),
+          backgroundColor: Colors.blueAccent,
+        ),
         drawer: Drawer(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -25,26 +28,67 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               spacing: 10,
               children: [
-                InkWell(child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 5),
-                  width: double.infinity, 
-                  child: Text("Dashboards", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
+                InkWell(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    width: double.infinity,
+                    child: Text(
+                      "Dashboards",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const PositionPage(title: "Position Page")));
-                  }),
-                InkWell(child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 5),
-                  width: double.infinity, 
-                  child: Text("Estoque", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
-                  onTap: () {}),
-                InkWell(child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 5),
-                  width: double.infinity, 
-                  child: Text("Posições", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) =>
+                                const PositionPage(title: "Position Page"),
+                      ),
+                    );
+                  },
+                ),
+                InkWell(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    width: double.infinity,
+                    child: Text(
+                      "Estoque",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  onTap: () {},
+                ),
+                InkWell(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    width: double.infinity,
+                    child: Text(
+                      "Posições",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const PositionPage(title: "Position Page")));
-                  })
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) =>
+                                const PositionPage(title: "Position Page"),
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -57,8 +101,8 @@ class _HomePageState extends State<HomePage> {
                 onPageChanged: (value) {
                   setState(() {
                     pageNumber = value;
-                    });
-                  },
+                  });
+                },
                 children: [
                   Center(child: Text("Página Inicial")),
                   PositionPage(title: "Position Page"),
@@ -73,11 +117,19 @@ class _HomePageState extends State<HomePage> {
                   pageController.jumpToPage(value);
                 });
               },
-              currentIndex: pageNumber, items: [
-              BottomNavigationBarItem(icon: Icon(Icons.house), label: "Home"),
-              BottomNavigationBarItem(icon: Icon(Icons.local_parking), label: "Positions"),
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Dashboard"),
-            ])
+              currentIndex: pageNumber,
+              items: [
+                BottomNavigationBarItem(icon: Icon(Icons.house), label: "Home"),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.local_parking),
+                  label: "Positions",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: "Dashboard",
+                ),
+              ],
+            ),
           ],
         ),
       ),
